@@ -16,6 +16,7 @@ class Report(ReportBase):
     id: int
     photo_url: str
     ai_result: Optional[dict] = None
+    is_synthetic: bool = False
     status: str
     created_at: datetime
 

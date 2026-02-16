@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Enum, Float, JSON
+from sqlalchemy import Column, Integer, String, DateTime, Enum, Float, JSON, Boolean
 from sqlalchemy.sql import func
 import enum
 from app.db.session import Base
@@ -19,6 +19,7 @@ class DefectReport(Base):
     latitude = Column(Float)
     longitude = Column(Float)
     ai_result = Column(JSON, nullable=True)
+    is_synthetic = Column(Boolean, default=False, server_default='false')
     photo_url = Column(String)
     status = Column(String, default=ReportStatus.PENDING)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
